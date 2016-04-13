@@ -680,6 +680,100 @@ namespace GigALoan_Service
             }
         }//end method AddStudent 
 
+        public List<DTO_CORE_Student> GetStudentByID(DTO_CORE_Student request)
+        {
+            DB_connection context = new DB_connection();
+
+            var resultList = context.CORE_Students.Where(student => student.StudentID == request.StudentID).ToList();
+            List<DTO_CORE_Student> result = new List<DTO_CORE_Student>();
+
+            foreach (CORE_Students student in resultList)
+            {
+                DTO_CORE_Student studentByID = new DTO_CORE_Student
+                {
+                    StudentID = student.StudentID,
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Email = student.Email,
+                    Employed = (bool)student.Employed,
+                    Employer = student.Employer,
+                    MajorID = student.MajorID,
+                    CollegeID = student.CollegeID,
+                    Pass = student.Pass,
+                    Gender = student.Gender,
+                    PhoneNumber = student.PhoneNumber,
+                    Active = (bool)student.Active
+                };
+                result.Add(studentByID);
+            }
+
+            return result;
+
+        }
+
+        public List<DTO_CORE_Student> GetStudentByName(DTO_CORE_Student request)
+        {
+            //Create a list of type DTO_CORE_Student
+            DB_connection context = new DB_connection();
+
+            var resultList = context.CORE_Students.Where(student => student.LastName == request.LastName || student.FirstName == student.FirstName); //Needs to also recognize a full name (Firt Last and Last First)
+            List<DTO_CORE_Student> result = new List<DTO_CORE_Student>();
+
+            foreach (CORE_Students student in resultList)
+            {
+                DTO_CORE_Student studentByName = new DTO_CORE_Student
+                {
+                    StudentID = student.StudentID,
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Email = student.Email,
+                    Employed = (bool)student.Employed,
+                    Employer = student.Employer,
+                    MajorID = student.MajorID,
+                    CollegeID = student.CollegeID,
+                    Pass = student.Pass,
+                    Gender = student.Gender,
+                    PhoneNumber = student.PhoneNumber,
+                    Active = (bool)student.Active
+                };
+                result.Add(studentByName);
+            }
+
+            return result;
+
+        }
+
+        public List<DTO_CORE_Student> GetStudentByEmail(DTO_CORE_Student request)
+        {
+            //Create a list of type DTO_CORE_Student
+            DB_connection context = new DB_connection();
+
+            var resultList = context.CORE_Students.Where(student => student.Email == request.Email || student.Email.Contains(request.Email)).ToList();
+            List<DTO_CORE_Student> result = new List<DTO_CORE_Student>();
+
+            foreach (CORE_Students student in resultList)
+            {
+                DTO_CORE_Student studentByEmail = new DTO_CORE_Student
+                {
+                    StudentID = student.StudentID,
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Email = student.Email,
+                    Employed = (bool)student.Employed,
+                    Employer = student.Employer,
+                    MajorID = student.MajorID,
+                    CollegeID = student.CollegeID,
+                    Pass = student.Pass,
+                    Gender = student.Gender,
+                    PhoneNumber = student.PhoneNumber,
+                    Active = (bool)student.Active
+                };
+                result.Add(studentByEmail);
+            }
+
+            return result;
+
+        }
 
     }
 }

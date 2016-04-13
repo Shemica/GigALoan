@@ -10,7 +10,9 @@ namespace GigALoan_Service
     public interface IService
     {
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "/FindAlertByID", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "POST", UriTemplate = "/FindAlertByID", 
+            RequestFormat = WebMessageFormat.Json, 
+            ResponseFormat = WebMessageFormat.Json)]
         List<DTO_CORE_GigAlert> FindAlertByID(DTO_CORE_GigAlert request);
 
         [OperationContract]
@@ -32,6 +34,7 @@ namespace GigALoan_Service
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/FindGigsByClientID", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         List<DTO_CORE_Gig> FindGigsByClientID(DTO_CORE_Client request);
+
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/GetStudentAccount", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         List<DTO_CORE_Student> GetStudentAccount(DTO_CORE_Student request);
@@ -106,6 +109,18 @@ namespace GigALoan_Service
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/AddClient", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-       DTO_CORE_Client AddClient(DTO_CORE_Client request);
+        DTO_CORE_Client AddClient(DTO_CORE_Client request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetStudentById", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        List<DTO_CORE_Student> GetStudentByID(DTO_CORE_Student request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetStudentByName", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        List<DTO_CORE_Student> GetStudentByName(DTO_CORE_Student request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetStudentByEmail", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        List<DTO_CORE_Student> GetStudentByEmail(DTO_CORE_Student request);
     }
 }
