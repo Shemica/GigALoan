@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}</ProjectGuid>
+    <ProjectGuid>{E236729D-314F-43CC-8AB7-C74BC7751B9A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GigALoan_Model</RootNamespace>
