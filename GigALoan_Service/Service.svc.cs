@@ -770,7 +770,7 @@ namespace GigALoan_Service
                 };
                 result.Add(studentByEmail);
             }
-
+            
             return result;
 
         }
